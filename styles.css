@@ -1,0 +1,451 @@
+:root {
+    --primary-color: #ff66b3; /* Rosa amoroso */
+    --secondary-color: #ffb3d9; /* Rosa claro */
+    --accent-color: #ff3385; /* Rosa mais intenso */
+    --text-color: #5a3d5a; /* Roxo suave */
+    --light-bg: #fff0f7; /* Fundo rosa claríssimo */
+    --shadow-color: rgba(255, 102, 179, 0.3); /* Sombra rosa */
+}
+
+body {
+    cursor: url('cursor.cur'), auto;
+    font-family: 'Comic Neue', cursive, sans-serif; /* Fonte mais fofa */
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M30,50 Q50,30 70,50 Q85,65 50,85 Q15,65 30,50 Z" fill="%23ffb3d9" opacity="0.1"/></svg>');
+    background-size: 200px;
+    transition: all 0.5s;
+}
+
+.container {
+    background-color: white;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    margin: 20px;
+    transition: all 0.5s ease;
+    border: 1px solid var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed var(--secondary-color);
+    border-radius: 30px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.hidden {
+    display: none;
+}
+
+.message-box {
+    animation: fadeIn 1s ease;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+button {
+    cursor: url('select.cur'), pointer;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+button::before {
+    cursor: url('select.cur'), pointer;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.5s;
+    z-index: -1;
+}
+
+button:hover {
+    cursor: url('select.cur'), pointer;
+    background-color: var(--accent-color);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+button:hover::before {
+    left: 100%;
+    cursor: url('select.cur'), pointer;
+}
+
+button:disabled {
+    background-color: #e0c0d0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    cursor: url('select.cur'), pointer;
+}
+
+/* Estilos para as opções de cor - agora corações! */
+.color-options {
+    cursor: url('select.cur'), pointer;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.color-option {
+    cursor: url('select.cur'), pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    clip-path: path("M50,30 C50,0 100,0 100,30 C100,55 75,75 50,95 C25,75 0,55 0,30 C0,0 50,0 50,30 Z");
+}
+
+.color-option:hover {
+    transform: scale(1.1) rotate(10deg);
+    cursor: url('select.cur'), pointer;
+}
+
+.color-option.selected {
+    border-color: white;
+    transform: scale(1.15) rotate(-10deg);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    animation: pulse 1.5s infinite;
+    cursor: url('select.cur'), pointer;
+}
+
+/* Estilo para o input de altura - agora com corações */
+.size-input {
+    margin: 40px 0;
+    position: relative;
+    cursor: url('select.cur'), pointer;
+}
+
+.size-input::before {
+    cursor: url('select.cur'), pointer;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.size-input::after {
+    cursor: url('select.cur'), pointer;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+#height-input {
+    cursor: url('select.cur'), pointer;
+    width: 80%;
+    margin: 20px 0;
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--secondary-color);
+    outline: none;
+}
+
+#height-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 5px var(--shadow-color);
+}
+
+#height-value {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: var(--light-bg);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+}
+
+/* Estilo para o select de flores - super fofo */
+#flower-select {
+    cursor: url('select.cur'), pointer;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--secondary-color);
+    font-size: 16px;
+    margin: 20px 0;
+    width: 80%;
+    max-width: 300px;
+    background-color: white;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff66b3" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#flower-select:hover {
+    cursor: url('select.cur'), pointer;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* Área do quebra-cabeça - agora super romântica */
+.puzzle-area {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.puzzle-piece {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    cursor: grab;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    position: relative;
+}
+
+.puzzle-piece::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px dashed rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.puzzle-piece:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.heart-target {
+    width: 220px;
+    height: 220px;
+    margin: 30px auto;
+    border: 3px dashed var(--secondary-color);
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+    background-color: rgba(255, 179, 217, 0.1);
+    transition: all 0.5s;
+}
+
+.heart-target.highlight {
+    background-color: rgba(255, 102, 179, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px var(--shadow-color);
+    transform: scale(1.02);
+}
+
+.heart-target::after {
+    content: "Solte aqui seu amor ❤️";
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.our-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 115px;
+    transition: all 1s ease-in-out;
+    filter: drop-shadow(0 0 10px var(--shadow-color));
+}
+
+.completion-message {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: var(--light-bg);
+    border-radius: 20px;
+    animation: fadeIn 1s;
+    border: 1px solid var(--secondary-color);
+    position: relative;
+}
+
+.completion-message::before, .completion-message::after {
+    content: "❤️";
+    position: absolute;
+    font-size: 20px;
+}
+
+.completion-message::before {
+    top: 10px;
+    left: 10px;
+}
+
+.completion-message::after {
+    bottom: 10px;
+    right: 10px;
+}
+
+.confirmation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.confirmation-buttons button {
+    flex: 1;
+    max-width: 200px;
+}
+
+/* Animações fofas */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1.15) rotate(-10deg); }
+    50% { transform: scale(1.2) rotate(-10deg); }
+    100% { transform: scale(1.15) rotate(-10deg); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.pulsating-heart {
+    display: inline-block;
+    animation: heartbeat 10.5s infinite;
+}
+
+/* Responsividade amorosa */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    .puzzle-piece {
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+    }
+    
+    .heart-target {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .confirmation-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .confirmation-buttons button {
+        width: 100%;
+    }
+    
+    .color-option {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}

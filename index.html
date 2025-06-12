@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Coração - Dia dos Namorados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="welcome-screen">
+        <div class="message-box">
+            <h1>💖 Bem-vinda ao Jardim do Nosso Amor 💖</h1>
+            <p>Neste Dia dos Namorados, preparei uma surpresa especial para a pessoa que ilumina minha vida...</p>
+            <button id="start-btn">Começar Nossa Jornada</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="quiz-container">
+        <!-- Pergunta 1 - Cor favorita -->
+        <div class="question hidden" id="question1">
+            <h2>Qual é a cor que melhor representa o brilho dos seus olhos quando você sorri?</h2>
+            <div class="color-options">
+                <div class="color-option" data-color="#ff0000" style="background-color: #ff0000;"></div>
+                <div class="color-option" data-color="#ff66b3" style="background-color: #ff66b3;"></div>
+                <div class="color-option" data-color="#0000ff" style="background-color: #0000ff;"></div>
+                <div class="color-option" data-color="#00ff00" style="background-color: #00ff00;"></div>
+                <div class="color-option" data-color="#ffff00" style="background-color: #ffff00;"></div>
+                <div class="color-option" data-color="#ffa500" style="background-color: #ffa500;"></div>
+            </div>
+            <button class="next-btn" disabled>Próximo Passo</button>
+        </div>
+
+        <!-- Feedback 1 -->
+        <div class="feedback hidden" id="feedback1">
+            <p>✨ <span id="color-feedback"></span> ✨</p>
+            <p>Assim como o céu ao entardecer, você ilumina meu mundo com suas cores...</p>
+            <button class="next-btn">Continuar Nossa História</button>
+        </div>
+
+        <!-- Pergunta 2 - Tamanho -->
+        <div class="question hidden" id="question2">
+            <h2>Qual é a medida exata do seu abraço que tanto me aquece?</h2>
+            <div class="size-input">
+                <input type="range" id="height-input" min="140" max="200" value="160">
+                <span id="height-value">160cm</span>
+            </div>
+            <button class="next-btn">Próximo Passo</button>
+        </div>
+
+        <!-- Feedback 2 -->
+        <div class="feedback hidden" id="feedback2">
+            <p>💕 <span id="height-feedback"></span> 💕</p>
+            <p>Perfeita em cada detalhe, assim como Deus te desenhou para ser...</p>
+            <button class="next-btn">Continuar Nossa História</button>
+        </div>
+
+        <!-- Pergunta 3 - Flor favorita -->
+        <div class="question hidden" id="question3">
+            <h2>Qual flor representa a delicadeza do seu coração que tanto amo?</h2>
+            <img src="https://i.gifer.com/av.gif" alt="Gatinho kawaii" style="width: 200px; display: block; margin: 10px auto;">
+            <select id="flower-select">
+                <option value="">-- Escolha a flor do nosso amor --</option>
+                <option value="rose">Rosa - O símbolo clássico do amor</option>
+                <option value="sunflower">Girassol - Que segue a luz como eu sigo você</option>
+                <option value="daisy">Margarida - Simples e pura como nosso carinho</option>
+                <option value="tulip">Tulipa - Elegante e cheia de significado</option>
+                <option value="lily">Lírio - Majestosa como a nossa conexão</option>
+            </select>
+            <button class="next-btn" disabled>Próximo Passo</button>
+        </div>
+
+        <!-- Feedback 3 e Confirmação -->
+        <div class="feedback hidden" id="feedback3">
+            <p>🌹 <span id="flower-feedback"></span> 🌹</p>
+            <p>Estas são as características que fazem meu coração bater mais forte por você...</p>
+            <p>Querida, você confirma que estas são as perfeições que me fazem te amar cada dia mais?</p>
+            <div class="confirmation-buttons">
+                <button id="confirm-btn">Sim, meu amor!</button>
+                <button id="change-btn">Quero ajustar alguns detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container hidden" id="puzzle-container">
+        <h1>💞 Monte o Quebra-Cabeça do Nosso Amor 💞</h1>
+        <p>Junte as peças para revelar o coração que bate por você neste Dia dos Namorados...</p>
+        
+        <div class="puzzle-area">
+            <div class="puzzle-piece" id="piece1" draggable="true"></div>
+            <div class="puzzle-piece" id="piece2" draggable="true"></div>
+            <div class="puzzle-piece" id="piece3" draggable="true"></div>
+        </div>
+        
+        <div class="heart-target" id="heart-target"></div>
+        
+        <div class="completion-message hidden" id="completion-message">
+            <h2><span id="final-message"></span></h2>
+            <p>Feliz Dia dos Namorados, meu amor! Que nosso romance continue a florescer como as mais belas flores do jardim...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
